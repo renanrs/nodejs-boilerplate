@@ -1,5 +1,5 @@
 const authController = require('../controllers/auth.controller')
-    , boilerPlateController = require('../controllers/boilerplate.controller')
+    , exampleController = require('../controllers/example.controller')
     , { body } = require( 'express-validator/check' );
 
 const _possibleError = [
@@ -8,8 +8,12 @@ const _possibleError = [
 
 module.exports = ( app ) => {
   app.route('/v1/example/success/:exampleId')
-    .get( authController.logonRequired, boilerPlateController.successExample );
+    .get( authController.logonRequired, exampleController.successExample );
   
   app.route('/v1/example/error/:exampleId')
-    .get( authController.logonRequired, boilerPlateController.errorExample );
+    .get( authController.logonRequired, exampleController.errorExample );
+
+  app.route('/v1/example/external/:statusCode')
+    .get( authController.logonRequired, exampleController.externalExample );
+  
 };
