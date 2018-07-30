@@ -68,8 +68,19 @@ In this example, it has a `responseHandler` that will return the response provid
 
 The recommendation is to organize it the way you make the most confortable and organized as you wish.
 
+# Deployment
+This boilerplate is ready for deployment inside [IBM Cloud][IBM Cloud].
 
+The only modification needed is changing the `manifest.yml` application name to the name of your desire.
 
+```bash
+  $ cf login #--sso recommended
+
+  # provide your credentials
+  # ...
+  $ cf push # Creates a new application inside IBM Cloud if doesn't exist
+
+```
 
 [express]: https://github.com/expressjs/
 [mongoose]: https://github.com/Automattic/mongoose
@@ -88,3 +99,4 @@ The recommendation is to organize it the way you make the most confortable and o
 [prom-client]: https://github.com/siimon/prom-client
 [request]: https://github.com/request/request
 [request-promise]: https://github.com/request/request-promise
+[IBM Cloud]: https://console.bluemix.net/
