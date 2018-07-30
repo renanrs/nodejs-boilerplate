@@ -1,0 +1,9 @@
+---
+applications:
+- name: #Name your application on IBM Cloud Here
+  command: npm start
+  path: .
+  memory: 512M
+  instances: 1
+  env:
+    NPM_CONFIG_PRODUCTION: false

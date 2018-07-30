@@ -1,0 +1,60 @@
+{
+  "name": "ibm-nodejs-boilerplate",
+  "version": "1.0.0",
+  "description": "IBM NodeJs BoilerPlate Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2 start index.js -i 4 --name=\"microservice\" --no-daemon",
+    "dev": "gulp serve",
+    "build": "gulp build",
+    "test": "mocha --opts test/mocha.opts test --reporter-options reportDir=./public/test,reportFilename=index,quiet=true,enableCode=false"
+  },
+  "keywords": [
+    "ibm",
+    "node",
+    "nodejs",
+    "boilerplate",
+    "ibm-nodejs",
+    "ibm-boilerplate"
+  ],
+  "author": "ycabral",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.3",
+    "consign": "^0.1.6",
+    "consul": "^0.34.0",
+    "dotenv-safe": "^6.0.0",
+    "express": "^4.16.3",
+    "express-validator": "^5.3.0",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.5",
+    "morgan": "^1.9.0",
+    "pm2": "^3.0.1",
+    "prom-client": "^11.1.1",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-latest": "^6.24.1",
+    "chai": "^4.1.2",
+    "chai-json-schema": "^1.5.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-util": "^3.0.8",
+    "jsdoc": "^3.5.5",
+    "jsdoc-route-plugin": "^0.1.0",
+    "mocha": "^5.2.0",
+    "mochawesome": "^3.0.2",
+    "nodemon": "^1.18.3",
+    "run-sequence": "^2.2.1",
+    "supertest": "^3.1.0"
+  }
+}
