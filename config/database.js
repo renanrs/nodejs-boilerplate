@@ -1,5 +1,5 @@
 module.exports = (uri) => {
-  var mongoose = require('mongoose');
+  const mongoose = require('mongoose');
 
   mongoose.connect( uri, { useNewUrlParser: true } );
 
