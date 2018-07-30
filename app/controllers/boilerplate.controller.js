@@ -1,14 +1,18 @@
-const _example = ( req, res, next ) => {
+const { handleSuccess, handleError } = require('../services/responseHandler'); 
+
+const _successExample = ( req, res ) => {
   const exampleId = req.params.exampleId;
 
-  res.status( 200 ).json({
-    id: `${exampleId}`,
-    message: 'Vai corinthians'
-  });
+  handleSuccess( req, res, { id: `${exampleId}`, message: 'Success' } );
+};
 
-  next();
+const _errorExample = ( req, res ) => {
+  const exampleId = req.params.exampleId;
+
+  handleError( req, res, { id: `${exampleId}`, message: 'Error' } );
 };
 
 module.exports = {
-  example: _example
+    successExample: _successExample
+  , errorExample: _errorExample
 };
