@@ -17,4 +17,5 @@ const user = {
 
 const userSchema = mongoose.Schema( user );
 
+//               THIS will be your collection name
 mongoose.model( 'User', userSchema );
