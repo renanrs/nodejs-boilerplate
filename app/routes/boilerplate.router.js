@@ -7,6 +7,9 @@ const _possibleError = [
 ];
 
 module.exports = ( app ) => {
-  app.route('/v1/example/:exampleId')
-    .get( authController.logonRequired, boilerPlateController.example );
+  app.route('/v1/example/success/:exampleId')
+    .get( authController.logonRequired, boilerPlateController.successExample );
+  
+  app.route('/v1/example/error/:exampleId')
+    .get( authController.logonRequired, boilerPlateController.errorExample );
 };
