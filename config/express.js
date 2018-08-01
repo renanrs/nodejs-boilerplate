@@ -11,8 +11,7 @@ collectDefaultMetrics({ timeout: 5000 });
 
 module.exports = () => {
   require('dotenv-safe').load({
-    path: `${__dirname}/.${process.env.NODE_ENV}.env`,
-    //path: `${__dirname}/config/.env`,
+    path: `${__dirname}/.env`,
     sample: `${__dirname}/.env.example`,
     allowEmptyValues: false
   });
@@ -48,7 +47,7 @@ module.exports = () => {
   // Authorization header required, uses JSONWEBTOKEN.
   // If no Authorization header is provided, returns 401 - Unauthorized
   app.use( ( req, res, next ) => {
-    if ( req.url === '/v1/auth' && req.method === 'POST' ) return next(); // it does not blocks authentication request
+    if ( ( req.url === '/v1/auth' || req.url === '/v1/register' ) && req.method === 'POST' ) return next(); // it does not blocks authentication request
     if ( req.headers && req.headers.authorization ){
       jwt.verify( req.headers.authorization, process.env.JWT_SECRET, ( err, decode ) => {
         if ( err ) req.user = undefined;
@@ -65,7 +64,7 @@ module.exports = () => {
     next();
   });
 
-  consign({ cwd: 'app'})
+  consign({ cwd: 'app', verbose: false })
     .include('models')
     .then('controllers')
     .then('routes')
