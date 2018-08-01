@@ -7,15 +7,15 @@
     "start": "pm2 start index.js -i 4 --name=\"microservice\" --no-daemon",
     "dev": "gulp serve",
     "build": "gulp build",
-    "test": "NODE_ENV=test mocha --opts config/mocha.opts tests/**/*.js --reporter-options reportDir=./public/tests,reportFilename=index,quiet=true,enableCode=false"
+    "test": "NODE_ENV=test mocha --opts config/mocha.opts tests/**/*.js --reporter-options reportDir=./public/tests,reportFilename=index,quiet=true,enableCode=false",
+    "doc": "jsdoc -c .jsdoc.conf"
   },
   "keywords": [
-    "ibm",
     "node",
     "nodejs",
     "boilerplate",
-    "ibm-nodejs",
-    "ibm-boilerplate"
+    "nodejs",
+    "boilerplate"
   ],
   "author": "ycabral",
   "license": "MIT",
