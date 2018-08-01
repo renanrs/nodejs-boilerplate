@@ -29,9 +29,9 @@ const _userLogout = ( req, res ) => {
 const _userRegister = ( req, res ) => {
   User.findOne({email: req.body.email})
     .then( user => {
-      if ( user ) return handleError( req, releaseEvents, {message: 'Mail already exists'}, 400 );
+      if ( user ) return handleError( req, res, {message: 'User already exists'}, 400 );
       
-      bcrypt.hash( req.body.password, 10 )
+      bcrypt.hash( req.body.pass, 10 )
         .then( hash  => {
           const newUser = new User( req.body );
           newUser.pass = hash;
@@ -59,19 +59,15 @@ const _validateErrors = ( req, res, next ) => {
 const _logonRequired = ( req, res, next ) => {
   const token = req.headers.authorization;
 
-  if ( token ){
-    
+  token ?
     jwt.verify( token, process.env.JWT_SECRET, ( err, decode ) => {
       if ( err ) return res.status( 401 ).send({message: 'Invalid token'});
       req.user = decode;
       next();
-    });
-
-  } else {
-    return res.status( 401 ).send({
+    })
+  : res.status( 401 ).send({
       message: 'Invalid token'
     });
-  }
 };
 
 module.exports = {
