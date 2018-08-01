@@ -1,10 +1,5 @@
 const authController = require('../controllers/auth.controller')
-    , exampleController = require('../controllers/example.controller')
-    , { body } = require( 'express-validator/check' );
-
-const _possibleError = [
-  body('email', 'email must exist and be alphanumeric').exists().isEmail()
-];
+    , exampleController = require('../controllers/example.controller');
 
 module.exports = ( app ) => {
   app.route('/v1/example/success/:exampleId')
