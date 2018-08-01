@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const user = {
-  nome: {
+  name: {
     type: String,
     required: true
   },
@@ -17,5 +17,5 @@ const user = {
 
 const userSchema = mongoose.Schema( user );
 
-//               THIS will be your collection name
+//               THIS will be your collection name, in this case: users
 mongoose.model( 'User', userSchema );
