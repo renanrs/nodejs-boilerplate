@@ -23,6 +23,7 @@ module.exports = () => {
   app.use(express.static(sroot + spublic));
 
   app.use( bodyParser.json() );
+  app.use( require('helmet')() );
   app.use( bodyParser.urlencoded( { extended: true } ) );
   app.use( morgan('dev') );
   
